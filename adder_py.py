@@ -5,16 +5,7 @@ import pandas as pd
 import sys
 import os
 import base64
-
-def install_package(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-# Try importing matplotlib and install if not available
-try:
-    import matplotlib.pyplot as plt
-except ImportError:
-    install_package("matplotlib")
-    import matplotlib.pyplot as plt  # Retry import after installation
+import matplotlib.pyplot as plt
     
 # Function to calculate Fixed EMI (Flat Rate)
 def calculate_fixed_emi(p, r, n):
