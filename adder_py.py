@@ -173,9 +173,13 @@ if principal > 0 and roi > 0 and tenure > 0:
 
             monthly_df = pd.DataFrame(monthly_data)
             monthly_df.set_index("Month", inplace=True)
+            num_rows = monthly_df.shape[0]
+            row_height = 38  # Approximate row height in pixels
+            total_height = row_height * num_rows  # Calculate total height
+            
             st.session_state.monthly_table = st.empty()  # Create a placeholder for the table
             st.session_state.monthly_table.write(f"Monthly EMI Breakdown for Year {selected_year}")
-            st.dataframe(monthly_df, use_container_width=True)
+            st.dataframe(monthly_df, use_container_width=True, height = total_height)
 
     # Check EMI Type Option
     elif action == 'Check EMI Type':
